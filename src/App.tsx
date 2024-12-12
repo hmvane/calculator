@@ -1,11 +1,11 @@
-import Consumption from "./components/Consumption";
+import OrderContents from "./components/OrderContents";
 import MenuItem from "./components/MenuItem"
 import { menuItems } from "./data/db"
 import useOrder from "./hooks/useOrder"  //estado global 
 
 function App() {
 
-  const { addItem, order } = useOrder();
+  const { addItem, order, removeItem } = useOrder();
 
   return (
     <>
@@ -32,10 +32,11 @@ function App() {
         <div className="p-5">
           <h2 className="font-black text-center">Menu</h2>
           <div className="space-y-3 mt-5">
-          <Consumption
+          <OrderContents
           order={order}
+          removeItem={removeItem}
           >
-          </Consumption>
+          </OrderContents>
           </div>
         </div>
       </main>
